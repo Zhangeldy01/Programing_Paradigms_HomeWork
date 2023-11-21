@@ -5,6 +5,8 @@
 # Imperative programming paradigm
 # Selection Sort (сортировка выбором)
 arr = [8, 12, 6, 21, 15, 3, 9, 0]
+
+
 def selection_sort(arr):
     for i in range(len(arr)):
         maximum = i
@@ -15,4 +17,6 @@ def selection_sort(arr):
         # Помещаем это перед отсортированным концом массива
         arr[maximum], arr[i] = arr[i], arr[maximum]
     return arr
+
+
 print("Отсортированный список:", selection_sort(arr))

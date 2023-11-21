@@ -1,6 +1,7 @@
 import pygame
 import sys
 
+
 def check_win(mas, sign):
     zeroes = 0
     for row in mas:
@@ -18,6 +19,7 @@ def check_win(mas, sign):
         return 'Piece'
     return False
 
+
 pygame.init()
 size_block = 120
 indentation = 15
@@ -32,7 +34,7 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 white = (255, 255, 255)
 mas = [[0] * 3 for i in range(3)]  # Массив заполненный нулями, которые показывают пустую клетку
-query = 0 # 1 2 3 4 5 6 7
+query = 0  # 1 2 3 4 5 6 7
 game_over = False
 while True:
     for event in pygame.event.get():  # цикл обработки событий
@@ -45,7 +47,7 @@ while True:
             row = y_mouse // (size_block + indentation)
             if mas[row][col] == 0:
                 if query % 2 == 0:
-                    mas[row][col]  = 'x'
+                    mas[row][col] = 'x'
                 else:
                     mas[row][col] = 'o'
                 query += 1
@@ -56,7 +58,7 @@ while True:
             screen.fill(black)
 
     if not game_over:
-    # Создание игрового поля
+        # Создание игрового поля
         for row in range(3):
             for col in range(3):
                 if mas[row][col] == 'x':
@@ -72,7 +74,8 @@ while True:
                     pygame.draw.line(screen, white, (x + 10, y + 10), (x + size_block - 10, y + size_block - 10), 6)
                     pygame.draw.line(screen, white, (x + size_block - 10, y + 10), (x + 10, y + size_block - 10), 6)
                 elif color == green:
-                    pygame.draw.circle(screen, white, (x + size_block // 2, y + size_block // 2), size_block // 2 - 5, 6)
+                    pygame.draw.circle(screen, white, (x + size_block // 2, y + size_block // 2), size_block // 2 - 5,
+                                       6)
     if (query - 1) % 2 == 0:
         game_over = check_win(mas, 'x')
     else:
